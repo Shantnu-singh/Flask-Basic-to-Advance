@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!-- <h2>this is our main page</h2> -->
+<form action="" method="post">
+    {{form.hidden_tag()}}
+    <div>
+        {{form.username.label}}
+        {{form.username}}
+        {%if form.username.errors%}
+        {% for error in form.username.errors %}
+        <div>{{error}}</div>
+        {% endfor %}
+        {%endif%}
+    </div>
+    <br>
+    <div>
+        {{form.email.label}}
+        {{form.email}}
+        {%if form.email.errors%}
+        {% for error in form.email.errors %}
+        <div>{{error}}</div>
+        {% endfor %}
+        {%endif%}
+    </div>
+    </div>
+    <br>
+    <div>
+        {{form.gender.label}}
+        {{form.gender}}
+        {%if form.gender.errors%}
+        {% for error in form.gender.errors %}
+        <div>{{error}}</div>
+        {% endfor %}
+        {%endif%}
+    </div>
+    </div>
+    <br>
+    <div>
+        {{form.dob.label}}
+        {{form.dob}}
+    </div>
+    <br>
+    <div>
+        {{form.password.label}}
+        {{form.password}}
+        {%if form.password.errors%}
+        {% for error in form.password.errors %}
+        <div>{{error}}</div>
+        {% endfor %}
+        {%endif%}
+    </div>
+    </div>
+    <br>
+    <div>
+        {{form.comfirm_password.label}}
+        {{form.comfirm_password}}
+        {%if form.comfirm_password.errors%}
+        {% for error in form.comfirm_password.errors %}
+        <div>{{error}}</div>
+        {% endfor %}
+        {%endif%}
+    </div>
+    </div>
+    <br>
+    <div>
+        {{form.sign_up()}}
+    </div>
+
+</form>
+<br>
+<div>
+    <p>Back to Home <a href="{{url_for('home')}}"> Home</a></p>
+    <p>Already a User? <a href="{{url_for('login')}}"> Log In</a></p>
+</div>
+{% endblock %}
