@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>Hey, these are the choices you have ...</h2>
+<ul>
+    <li class="itmes02"><a href="{{url_for('home')}}">Home</a></li>
+    <li class="itmes01"><a href="{{url_for('about')}}" target="_blank">About</a></li>
+    <li class="itmes03"><a href="{{url_for('info_em')}}">Employees</a></li>
+    <ul>
+        <li><a href="{{url_for('managers')}}">Managers</a></li>
+    </ul>
+    <li class="itmes04">Contact Us</li>
+    <li class="itmes05">Help </li>
+</ul>
+
+{% endblock %}

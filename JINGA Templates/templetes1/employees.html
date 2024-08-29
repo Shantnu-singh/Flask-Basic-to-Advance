@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% for em_if , em_data in info_em.items() %}
+
+<div>
+    <table>
+        <tr>
+            <td>ID:</td>
+            <td>{{em_if}}</td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td>{{em_data["name"]}}</td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td>{{em_data["age"]}}</td>
+        </tr>
+        <tr>
+            <td>Positions:</td>
+            <td>{{em_data['position']}}</td>
+        </tr>
+    </table>
+</div>
+<br>
+
+
+{% endfor %}
+
+{% endblock %}
