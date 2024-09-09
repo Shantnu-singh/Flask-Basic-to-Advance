@@ -83,3 +83,26 @@ WHERE (gross - budget) = (SELECT MAX(gross - budget) FROM movies m2 WHERE m1.gen
 SELECT name , genre , (gross - budget) as "Profits" 
 from movies m1
 WHERE (gross - budget) = (SELECT MAX(gross - budget) FROM movies m2 WHERE m1.genre = m2.genre);
+
+SELECT * from membership m left OUTER JOIN users u on m.uid = u.id;
+SELECT * from membership m RIGHT OUTER JOIN users u on m.uid = u.id;
+SELECT * from membership m left OUTER JOIN users u on m.uid = u.id
+UNION 
+SELECT * from membership m RIGHT OUTER JOIN users u on m.uid = u.id;
+SELECT name, gname , COUNT(*) as totalGrp from membership m JOIN users u ON m.uid = u.id JOIN  groups g on g.gid = m.gid
+GROUP by name;
+SELECT u1.name , u2.name FROM users u1 JOIN users u2 on u1.id = u2.emergency_contact;
+SELECT * FROM `movies` 
+ORDER BY budget LIMIT 10;
+# Independed movies 
+SELECT * FROM `movies` 
+WHERE budget = (SELECT max(budget) from movies);
+
+SELECT * FROM `movies` 
+WHERE star LIKE "A%";
+SELECT * FROM `movies` 
+WHERE star in (SELECT star from movies where star LIKE "A%");
+
+SELECT * from movies where star in (SELECT star from (SELECT star, SUM(gross - budget) as "Profit" FROM movies
+GROUP BY star 
+ORDER by Profit DESC LIMIT 10) A);
