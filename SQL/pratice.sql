@@ -79,3 +79,7 @@ ORDER by Profit DESC LIMIT 10) A);
 SELECT name , genre , (gross - budget) as "Profits" 
 from movies m1
 WHERE (gross - budget) = (SELECT MAX(gross - budget) FROM movies m2 WHERE m1.genre = m2.genre);
+
+SELECT name , genre , (gross - budget) as "Profits" 
+from movies m1
+WHERE (gross - budget) = (SELECT MAX(gross - budget) FROM movies m2 WHERE m1.genre = m2.genre);
